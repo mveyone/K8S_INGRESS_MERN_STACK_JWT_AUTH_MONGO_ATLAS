@@ -1,9 +1,10 @@
+### First Stage ###
 FROM node:14-slim AS builder
 
 WORKDIR /app
 
-COPY package.json ./
-COPY yarn.lock ./
+COPY ./package.json ./
+COPY ./yarn.lock ./
 
 RUN yarn install
 
@@ -11,14 +12,13 @@ COPY . .
 
 RUN yarn build
 
-### copy now the build to caddy server 
-
-FROM caddy:2.1.1-alpine
+### Second Stage ###
+FROM caddy:2.1.1
 
 ARG CADDYFILE
 COPY ${CADDYFILE} /etc/caddy/Caddyfile
 
-COPY --from=builder /app/build /srv
+COPY --from=builder /app/build/ /srv
 
 EXPOSE 80
 

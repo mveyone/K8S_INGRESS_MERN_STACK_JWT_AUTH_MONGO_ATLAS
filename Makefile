@@ -23,3 +23,16 @@ stop-dev:
 	docker-compose -f docker-compose.dev.yml down -v
 	docker rmi react-app-dev
 	docker rmi api-server-dev
+
+### local2
+build-dev2:
+	cd frontend && $(MAKE) build-dev2
+	cd backend && $(MAKE) build-dev
+
+run-dev2:
+	ENV=dev docker-compose -f docker-compose.dev2.yml up
+
+stop-dev2:
+	docker-compose -f docker-compose.dev2.yml down -v
+	docker rmi react-app-dev2
+	docker rmi api-server-dev

@@ -34,4 +34,11 @@ REACT_APP_PROXY_HOST=http://localhost:4000
  docker build -t \
  -f dockerfile.dev \
  
-  
+  2. frontend too ok env in docker-compose command + env_file inside docker-comopose.yml  it works for dev
+
+## now let s try with caddy
+
+1 dockerfile including build + caddy frontend
+2. dockerfile backend: no need
+3. docker-compose : mongo atlas + 
+
