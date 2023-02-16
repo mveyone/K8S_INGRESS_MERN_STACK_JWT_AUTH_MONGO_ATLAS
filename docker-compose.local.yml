@@ -1,24 +1,21 @@
 version: "3.8"
 services:
   api-server:
-    image: api-server-dev
+    image: api-server-local
     build: ./backend
     ports:
       - "4000:4000"
     env_file: ./backend/config/${ENV}.env
     # restart: unless-stopped
     # stdin_open: true
-    depends_on:
-      - mongo
     # volumes:  ############# need to adjust the local and dist path
     #   - ./api-server:/app
   
   react-app:
-    image: react-app-dev
+    image: react-app-local
     build: ./frontend
     ports:
       - "3000:3000"
-    env_file: ./frontend/config/${ENV}.env
     stdin_open: true
     # restart: unless-stopped
     depends_on:
@@ -26,17 +23,6 @@ services:
     # volumes:
     #   - ./api-server:/app
 
-
-  mongo:
-    image: mongo
-    ports:
-      - "27017:27017"
-    volumes:
-      - mongo-data:/data/db
-
-volumes:
-  mongo-data:
-    driver: local
 networks:
   mern-app:
     driver: bridge

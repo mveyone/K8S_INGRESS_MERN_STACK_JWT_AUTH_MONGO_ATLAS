@@ -25,3 +25,13 @@ You can add proxy now in the .env file, remember you need the REACT_APP_ prefix 
 REACT_APP_PROXY_HOST=http://localhost:4000
 
 "proxy": "http://localhost:4000", i delete this line from package.json of the client app 
+
+
+---------
+ ## i made the dockerfile.dev without arg and env for backend/apiserver 
+
+ 1. backend dockerfile adding arg
+ docker build -t \
+ -f dockerfile.dev \
+ 
+  
