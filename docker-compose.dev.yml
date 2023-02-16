@@ -5,12 +5,12 @@ services:
     build: ./backend
     ports:
       - "4000:4000"
-    restart: unless-stopped
-    stdin_open: true
+    # restart: unless-stopped
+    # stdin_open: true
     depends_on:
       - mongo
-    volumes:
-      - ./api-server:/app
+    # volumes:  ############# need to adjust the local and dist path
+    #   - ./api-server:/app
   
   react-app:
     image: react-app-dev
@@ -18,11 +18,11 @@ services:
     ports:
       - "3000:3000"
     stdin_open: true
-    restart: unless-stopped
+    # restart: unless-stopped
     depends_on:
       - api-server
-    volumes:
-      - ./api-server:/app
+    # volumes:
+    #   - ./api-server:/app
 
 
   mongo:
