@@ -41,4 +41,12 @@ REACT_APP_PROXY_HOST=http://localhost:4000
 1 dockerfile including build + caddy frontend
 2. dockerfile backend: no need
 3. docker-compose : mongo atlas + 
+#
+
+## now lets try with nginx 
+dockerfile for nginx with react-app
+make for build
+docker-compose file for production with nginx 
+make for docker-compose nginx
+
 

@@ -36,3 +36,11 @@ stop-dev2:
 	docker-compose -f docker-compose.dev2.yml down -v
 	docker rmi react-app-dev2
 	docker rmi api-server-dev
+
+### ngx
+build-ngx:
+	cd frontend && $(MAKE) build-ngx
+	cd backend && $(MAKE) build-dev
+
+run-ngx:
+	ENV=dev docker-compose -f docker-compose.ngx.yml up
