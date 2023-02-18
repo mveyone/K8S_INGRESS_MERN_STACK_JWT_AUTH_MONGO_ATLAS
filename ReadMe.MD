@@ -50,3 +50,4 @@ docker-compose file for production with nginx
 make for docker-compose nginx
 
 
+3000:80 (react-port: container port) (interne:externe)
