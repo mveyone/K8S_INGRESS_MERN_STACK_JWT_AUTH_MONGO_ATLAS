@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: client
+  template:
+    metadata:
+      labels:
+        component: client
+    spec:
+      containers:
+        - name: client
+          image: mveyone/nginx-mern-client-prod:latest
+          ports:
+            - containerPort: 80 # port of dockerfile
+              protocol: TCP
+          env:
+            - name: "REACT_APP_PROXY_HOST"
+              value: "http://api-service"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: client
+spec:
+  type: ClusterIP
+  selector:
+    component: client
+  ports:
+    - port: 80
+      targetPort: 80 # internal port of container
+

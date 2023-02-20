@@ -5,6 +5,7 @@ module.exports = function(app) {
     '/api', // You can pass in an array too eg. ['/api', '/another/path']
     createProxyMiddleware({
       target: process.env.REACT_APP_PROXY_HOST,
+      // target: 'http://api',
       changeOrigin: true,
     })
   );

@@ -51,3 +51,9 @@ make for docker-compose nginx
 
 
 3000:80 (react-port: container port) (interne:externe)
+
+when have issues with docker build related to space:
+
+docker volume rm $(docker volume ls -qf dangling=true)
+
+docker system prune

@@ -1,0 +1,23 @@
+version: "3.8"
+services:
+  api:
+    image: mveyone/nginx-mern-api:latest
+    build: ./server
+    ports:
+      - "4000:4000"
+    expose:
+      - "4000"
+    networks:
+      - mern-app
+    # env_file: ./server/config/${ENV}.env
+  client:
+    image: client-dev
+    build: ./client
+    ports:
+      - "3000:3000"
+    networks:
+      - mern-app
+
+networks:
+  mern-app:
+    driver: bridge

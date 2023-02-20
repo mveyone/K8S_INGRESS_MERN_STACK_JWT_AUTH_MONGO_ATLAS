@@ -1,0 +1,5 @@
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.46.0/deploy/static/provider/cloud/deploy.yaml
+
+https://kavinduchamiran.medium.com/full-mern-stack-app-0-to-deployment-on-kubernetes-part-1-e2f2a3e2fd99
+
+But when you talk about auto-scaling, and high availability, these tools aren’t enough to meet the requirements. This is where Kubernetes comes into the picture.
